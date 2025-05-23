@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop - Trendy Tees</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <!-- Navbar -->
+  <nav class="bg-white shadow p-4 flex justify-between items-center">
+    <div class="text-xl font-bold">Trendy Tees</div>
+    <ul class="hidden md:flex gap-6">
+      <li><a href="/" class="hover:text-blue-600">Home</a></li>
+      <li><a href="#products" class="hover:text-blue-600">Products</a></li>
+      <li><button onclick="toggleCart()" class="hover:text-blue-600">Cart (<span id="cart-count">0</span>)</button></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-200 p-10 text-center">
+    <h1 class="text-4xl font-bold mb-4">Trendy Tees for Everyone</h1>
+    <p class="text-lg">Stylish, affordable and comfortable T-shirts</p>
+  </section>
+
+  <!-- Product Listing -->
+  <section id="products" class="p-10">
+    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Products injected by JS -->
+    </div>
+  </section>
+
+  <!-- Cart Sidebar -->
+<div id="cart" class="fixed top-0 right-0 bg-white w-80 h-full shadow-lg p-6 hidden z-50">
+  <h2 class="text-xl font-bold mb-4">Your Cart</h2>
+  <div id="cart-items" class="overflow-y-auto max-h-[60vh]"></div>
+  <p class="mt-4 font-bold">Total: ₹<span id="cart-total">0</span></p>
+  <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Checkout</button>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="bg-white mt-10 p-4 text-center text-sm text-gray-500">
+    <p>&copy; 2025 Trendy Tees. All rights reserved.</p>
+    <div class="mt-2">
+      <a href="#" class="hover:underline">About</a> |
+      <a href="#" class="hover:underline">Contact</a> |
+      <a href="#" class="hover:underline">Terms</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const products = [
+      { id: 1, name: 'Classic White Tee', price: 19.99, image: 'Classic White Tee.jpg' },
+      { id: 2, name: 'Black V-Neck', price: 21.99, image: 'Black V-neck.webp' },
+      { id: 3, name: 'Graphic Tee', price: 25.99, image: 'Graphic Tee.jpg' },
+      { id: 4, name: 'Long Sleeve', price: 27.99, image: 'long sleeves.jpg' },
+      { id: 5, name: 'Red Round Neck', price: 20.99, image: 'Red V-neck.jpg' },
+    ];
+
+    const cart = [];
+    const conversionRate = 83; // USD to INR approx
+
+    function renderProducts() {
+      const list = document.getElementById('product-list');
+      list.innerHTML = '';
+      products.forEach(product => {
+        const item = document.createElement('div');
+        item.className = 'bg-white shadow rounded-lg p-4 hover:shadow-lg transition';
+        item.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" class="w-full mb-2 rounded" />
+          <h3 class="font-bold text-lg">${product.name}</h3>
+          <p class="text-gray-700 mb-2">₹${(product.price * conversionRate).toFixed(2)}</p>
+          <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 add-to-cart-btn">Add to Cart</button>
+        `;
+        list.appendChild(item);
+
+        // Add event listener for Add to Cart
+        const btn = item.querySelector('.add-to-cart-btn');
+        btn.addEventListener('click', () => addToCart(product.id));
+      });
+    }
+
+    function addToCart(id) {
+      const product = products.find(p => p.id === id);
+      cart.push(product);
+      updateCart();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotal = document.getElementById('cart-total');
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'mb-4 border-b pb-2';
+        div.innerHTML = `
+          <p>${item.name} - ₹${(item.price * conversionRate).toFixed(2)}</p>
+          <button class="text-red-600 text-sm" onclick="removeFromCart(${index})">Remove</button>
+        `;
+        total += item.price;
+        cartItems.appendChild(div);
+      });
+
+      cartCount.textContent = cart.length;
+      cartTotal.textContent = (total * conversionRate).toFixed(2);
+    }
+
+    function toggleCart() {
+      const cartElement = document.getElementById('cart');
+      cartElement.classList.toggle('hidden');
+    }
+
+    renderProducts();
+  </script>
+</body>
+</html>

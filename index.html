@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akanksha Verma - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    /* Hover effect for moon icon */
+    #toggleModeBtn:hover #moonIcon {
+      stroke: #7c3aed; /* Indigo-600 */
+      filter: drop-shadow(0 0 3px rgba(124, 58, 237, 0.7));
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-pink-200 to-blue-100 font-sans text-gray-900 transition-colors duration-300" id="body">
+
+  <!-- Loading Spinner -->
+  <div id="loader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+    <div class="w-16 h-16 border-4 border-indigo-500 border-dashed rounded-full animate-spin"></div>
+  </div>
+
+  <header class="bg-indigo-900 text-white py-6 relative px-6 md:px-12">
+  <!-- Centered title -->
+  <h1 class="text-3xl font-bold text-center">Welcome to My Portfolio</h1>
+
+  <!-- Right side controls: moon toggle & hamburger -->
+  <div class="absolute right-6 top-6 flex items-center space-x-4">
+    <!-- Toggle Mode Button with Moon Icon -->
+    <button id="toggleModeBtn" onclick="toggleMode()" aria-label="Toggle Dark Mode" class="p-2 rounded-full hover:bg-indigo-700 transition">
+      <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
+      </svg>
+    </button>
+
+    <!-- Hamburger for mobile -->
+    <button id="menuToggle" class="md:hidden focus:outline-none p-2 rounded hover:bg-indigo-700 transition" aria-label="Toggle menu">
+      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Navigation menu -->
+  <ul id="nav-menu" class="flex-col md:flex-row justify-center gap-6 mt-4 hidden md:flex transition-all duration-300 ease-in-out text-center">
+    <li><a href="#about" class="hover:bg-indigo-700 px-4 py-2 rounded-full block">About Me</a></li>
+    <li><a href="#achievements" class="hover:bg-indigo-700 px-4 py-2 rounded-full block">Achievements</a></li>
+    <li><a href="#goals" class="hover:bg-indigo-700 px-4 py-2 rounded-full block">Goals</a></li>
+    <li><a href="#personal" class="hover:bg-indigo-700 px-4 py-2 rounded-full block">Personal Side</a></li>
+    <li><a href="shop.html" class="hover:bg-indigo-700 px-4 py-2 rounded-full block">shop</a></li>
+    <li><a href="#contact" class="hover:bg-indigo-700 px-4 py-2 rounded-full block">Contact</a></li>
+  </ul>
+</header>
+
+
+  <main class="max-w-5xl mx-auto p-6 space-y-10">
+    <section id="welcome" class="bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 duration-300">
+      <h2 class="text-2xl font-semibold text-indigo-900 mb-4">Hello, I'm Akanksha</h2>
+      <img src="profile.jpg" alt="Akanksha Verma" class="w-40 h-40 rounded-full mx-auto shadow-md" loading="lazy" />
+      <div class="flex justify-center">
+        <video controls class="mt-4 rounded-lg shadow w-64 h-auto" loading="lazy">
+          <source src="introduction.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <section id="about" class="bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 duration-300">
+      <h2 class="text-2xl font-semibold text-indigo-900 mb-4">About Me</h2>
+      <p><strong>Name:</strong> Akanksha Verma</p>
+      <p><strong>Location:</strong> Palghar</p>
+      <p><strong>Education:</strong> BTech in Electronic and Computer Science</p>
+      <p><strong>Languages:</strong> English, Hindi</p>
+    </section>
+
+    <section id="achievements" class="bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 duration-300">
+      <h2 class="text-2xl font-semibold text-indigo-900 mb-4">Achievements</h2>
+      <ul id="achievement-list" class="list-disc ml-6 text-gray-700">
+        <li>Computer Networking</li>
+        <li>AI and Cyber Security</li>
+        <li>VLSI and semiconductors</li>
+      </ul>
+    </section>
+
+    <section id="goals" class="bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 duration-300">
+      <h2 class="text-2xl font-semibold text-indigo-900 mb-4">Future Goals</h2>
+      <ul class="list-decimal ml-6 space-y-2 text-gray-700">
+        <li>Become proficient in HTML, CSS, and JavaScript.</li>
+        <li>Learn modern frameworks like React, Vue, or Svelte.</li>
+        <li>Understand responsive design and accessibility.</li>
+        <li>Learn backend languages and frameworks like Node.js, Express, Django, or Laravel.</li>
+        <li>Gain hands-on experience with SQL and NoSQL.</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 duration-300">
+      <h2 class="text-2xl font-semibold text-indigo-900 mb-4">Project</h2>
+      <div>
+        <h3 class="text-xl font-semibold text-indigo-700">Mini Land Rover Project</h3>
+        <p>A 4-wheel drive land rover robot built using an ESP32 microcontroller and BTS7960 motor driver. Features rocker-bogie suspension for stable terrain navigation, wireless control, and embedded systems for obstacle climbing and stability.</p>
+      </div>
+    </section>
+
+    <section id="certifications" class="bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 duration-300">
+      <h2 class="text-2xl font-semibold text-indigo-900 mb-4">Certifications</h2>
+      <ul class="list-disc ml-6 text-gray-700 space-y-2">
+        <li>Computer Networking – Cisco Packet tracer</li>
+        <li>Foundations of Artificial Intelligence – IBM SkillsBuild</li>
+        <li>Innovative Trends In VLSI and semiconductor Engineering</li>
+        <li>Eureka Pitch Competition</li>
+      </ul>
+    </section>
+
+    <section id="personal" class="bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 duration-300">
+      <h2 class="text-2xl font-semibold text-indigo-900 mb-4">Personal Side</h2>
+      <p><strong>Hobbies:</strong> Coding, Gardening, Cooking</p>
+      <p><strong>Favorite Role Model:</strong> Vicky Kaushal</p>
+      <p><strong>Favorite Book:</strong> Big Magic</p>
+      <p><strong>Volunteering Experience:</strong> Land Rover, Cisco Packet Tracer</p>
+    </section>
+
+    <section id="contact" class="bg-white p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 duration-300">
+      <h2 class="text-2xl font-semibold text-indigo-900 mb-4">Contact Me</h2>
+      <div class="mb-4 p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+        <h3 class="text-lg font-medium text-indigo-700 mb-2">📞 Phone</h3>
+        <a href="tel:+918999079879" class="text-blue-600 underline">Call Me: 8999079879</a>
+      </div>
+      <div class="mb-4 p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+        <h3 class="text-lg font-medium text-green-700 mb-2">💬 WhatsApp</h3>
+        <a href="https://wa.me/918999079879" target="_blank" rel="noopener noreferrer" class="text-green-600 underline">Chat on WhatsApp</a>
+      </div>
+      <div class="mb-4 p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+        <h3 class="text-lg font-medium text-red-700 mb-2">📧 Email</h3>
+        <a href="mailto:123akanksha7045@sjcem.edu.in" class="text-red-600 underline">123akanksha7045@sjcem.edu.in</a>
+      </div>
+      <div class="mb-4 p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+        <h3 class="text-lg font-medium text-pink-600 mb-2">📸 Instagram</h3>
+        <a href="https://instagram.com/iamakanksha_2004" target="_blank" rel="noopener noreferrer" class="text-pink-500 underline">@iamakanksha_2004</a>
+      </div>
+      <div class="mb-4 p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+        <h3 class="text-lg font-medium text-gray-800 mb-2">🐙 GitHub</h3>
+        <a href="https://github.com/123akanksha7045" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:underline">akanksha465</a>
+      </div>
+      <div class="mb-4 p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+        <h3 class="text-lg font-medium text-blue-700 mb-2">🔗 LinkedIn</h3>
+        <a href="https://linkedin.com/in/123akanksha7045" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn</a>
+      </div>
+      <div class="mb-4">
+        <iframe class="w-full h-48 rounded" src="https://www.google.com/maps/embed?..." allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <form action="https://formspree.io/f/yourID" method="POST" class="mt-6 space-y-4">
+        <input type="text" name="name" placeholder="Your Name" class="border p-2 w-full rounded" required />
+        <input type="email" name="email" placeholder="Your Email" class="border p-2 w-full rounded" required />
+        <textarea name="message" placeholder="Your Message" class="border p-2 w-full rounded"></textarea>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="bg-indigo-900 text-white text-center py-6 mt-12">
+    <p>&copy; 2027 Akanksha Verma. All rights reserved.</p>
+    <p>Connect with me on <a href="https://github.com/123akanksha7045" class="text-pink-200 underline" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+  </footer>
+
+  <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top" class="fixed bottom-8 right-8 bg-indigo-600 text-white p-3 rounded-full shadow-lg hidden hover:bg-indigo-700 transition">
+    ↑
+  </button>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.display = 'none';
+    });
+
+    function toggleMode() {
+      const html = document.documentElement;
+      const body = document.getElementById('body');
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        body.classList.remove('bg-gray-900', 'text-white');
+        body.classList.add('bg-gradient-to-br', 'from-pink-200', 'to-blue-100', 'text-gray-900');
+      } else {
+        html.classList.add('dark');
+        body.classList.remove('bg-gradient-to-br', 'from-pink-200', 'to-blue-100', 'text-gray-900');
+        body.classList.add('bg-gray-900', 'text-white');
+      }
+    }
+
+    // Responsive nav menu toggle
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      const navMenu = document.getElementById('nav-menu');
+      navMenu.classList.toggle('hidden');
+    });
+
+    // Scroll to top button
+    window.onscroll = () => {
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollBtn.classList.remove('hidden');
+      } else {
+        scrollBtn.classList.add('hidden');
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
